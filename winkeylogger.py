@@ -1,3 +1,8 @@
+"""
+Matt Bliss
+mdb8775@rit.edu
+"""
+
 import keyboard
 import smtplib
 
